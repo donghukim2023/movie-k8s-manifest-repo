@@ -1,0 +1,34 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: helidon-movie-api-mp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helidon-movie-api-mp
+  template:
+    metadata:
+      labels:
+        app: helidon-movie-api-mp
+    spec:
+      containers:
+      - name: helidon-movie-api-mp
+        image: dandonghukim/helidon-movie-api-mp:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helidon-movie-api-mp-svc
+spec:
+  selector:
+    app: helidon-movie-api-mp
+  ports:
+    - port: 30000
+      targetPort: 8080
+  type: ClusterIP
