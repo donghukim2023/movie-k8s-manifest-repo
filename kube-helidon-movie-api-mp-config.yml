@@ -3,7 +3,7 @@ apiVersion: apps/v1
 metadata:
   name: helidon-movie-api-mp
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: helidon-movie-api-mp
