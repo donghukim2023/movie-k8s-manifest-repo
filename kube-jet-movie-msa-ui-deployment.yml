@@ -15,14 +15,14 @@ spec:
     spec:
       containers:
         - name: jet-movie-msa-ui
-          image: icn.ocir.io/axlpeslmb1ng/movie/jet-movie-msa-ui:f537d30fe28d8ca009e8e547cd3a7e69b942a7fa
+          image: icn.ocir.io/axlpeslmb1ng/movie/jet-movie-msa-ui:8d185fe16bf8a3a33d6bcaec022fd8dcc341ab3a
           imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8000
               protocol: TCP
       imagePullSecrets:
-      - name: ocirsecret
+        - name: ocirsecret
   strategy:
     canary:
       maxSurge: "20%"
