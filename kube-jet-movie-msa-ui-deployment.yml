@@ -27,4 +27,4 @@ spec:
       maxUnavailable: 0
       steps:
         - setWeight: 25
-        - pause: {}
+        - pause: { duration: 5m }
