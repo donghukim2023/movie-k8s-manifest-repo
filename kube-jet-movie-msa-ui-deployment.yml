@@ -23,7 +23,7 @@ spec:
               protocol: TCP
   strategy:
     canary:
-      maxSurge: "20%"
+      maxSurge: "25%"
       maxUnavailable: 0
       steps:
         - setWeight: 10
