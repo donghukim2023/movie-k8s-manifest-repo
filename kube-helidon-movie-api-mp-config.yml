@@ -32,7 +32,3 @@ spec:
     - port: 30000
       targetPort: 8080
   type: ClusterIP
-  template:
-    spec:
-      containers:
-        - image: dandonghukim/helidon-movie-api-mp:57999106a004c69fd5cf887de3f1f83995a0936c
