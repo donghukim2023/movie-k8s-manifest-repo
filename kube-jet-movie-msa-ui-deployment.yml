@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: jet-movie-msa-ui
 spec:
-  replicas: 8
+  replicas: 10
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -23,8 +23,8 @@ spec:
               protocol: TCP
   strategy:
     canary:
-      maxSurge: "25%"
+      maxSurge: "20%"
       maxUnavailable: 0
       steps:
-        - setWeight: 25
+        - setWeight: 10
         - pause: {duration: 5m}
