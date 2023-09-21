@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: springboot-movie-people-api
-        image: dandonghukim/springboot-movie-people-api:latest
+        image: icn.ocir.io/axlpeslmb1ng/movie/springboot-movie-people-api:latest
         imagePullPolicy: Always
         ports:
         - name: http
@@ -46,3 +46,5 @@ spec:
             secretKeyRef:
               name: moviedb-secret
               key: password
+      imagePullSecrets:
+      - name: ocirsecret
