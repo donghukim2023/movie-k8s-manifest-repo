@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: helidon-movie-api-mp-svc
+spec:
+  selector:
+    app: helidon-movie-api-mp
+  ports:
+    - port: 30000
+      targetPort: 8080
+  type: ClusterIP
