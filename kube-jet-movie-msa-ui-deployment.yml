@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: jet-movie-msa-ui
-          image: dandonghukim/jet-movie-msa-ui:dc3de20dd647ed75070cd069d4f92579020b0ba3
+          image: dandonghukim/jet-movie-msa-ui:106dec64c95aed1b1c5ea7608686fdd75c5316e2
           imagePullPolicy: Always
           ports:
             - name: http
@@ -26,5 +26,5 @@ spec:
       maxSurge: "25%"
       maxUnavailable: 0
       steps:
-      - setWeight: 25
-      - pause: {}
+        - setWeight: 25
+        - pause: {}
