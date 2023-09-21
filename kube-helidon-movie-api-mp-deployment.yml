@@ -13,16 +13,16 @@ spec:
         app: helidon-movie-api-mp
     spec:
       containers:
-        - name: helidon-movie-api-mp
-          image: dandonghukim/helidon-movie-api-mp:3d591a02e78fbcd3b2887ed34c7f068999b95274
-          imagePullPolicy: Always
-          ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
-          volumeMounts:
-            - name: helidon-movie-api-persistent-storage
-              mountPath: /var/lib/volume1
+      - name: helidon-movie-api-mp
+        image: dandonghukim/helidon-movie-api-mp:3d591a02e78fbcd3b2887ed34c7f068999b95274
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: helidon-movie-api-persistent-storage
+          mountPath: /var/lib/volume1
       volumes:
       - name: helidon-movie-api-persistent-storage
         persistentVolumeClaim:
