@@ -14,43 +14,43 @@ spec:
         app: springboot-movie-people-api
     spec:
       containers:
-      - name: springboot-movie-people-api
-        image: dandonghukim/springboot-movie-people-api:4b0a4458e3cd5bc014ac53be0ce92f2c86bae60a
-        imagePullPolicy: Always
-        ports:
-        - name: http
-          containerPort: 8080
-          protocol: TCP
-        env:
-        - name: DB_HOST
-          valueFrom:
-            configMapKeyRef:
-              name: moviedb-config
-              key: db-host
-        - name: DB_PORT
-          valueFrom:
-            configMapKeyRef:
-              name: moviedb-config
-              key: db-port
-        - name: DB_SERVICE_NAME
-          valueFrom:
-            configMapKeyRef:
-              name: moviedb-config
-              key: db-service-name
-        - name: DB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: moviedb-secret
-              key: username
-        - name: DB_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: moviedb-secret
-              key: password
+        - name: springboot-movie-people-api
+          image: dandonghukim/springboot-movie-people-api:11e166ecd779a13699e4cf77514db644f2937e6b
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: moviedb-config
+                  key: db-host
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: moviedb-config
+                  key: db-port
+            - name: DB_SERVICE_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: moviedb-config
+                  key: db-service-name
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: moviedb-secret
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: moviedb-secret
+                  key: password
   strategy:
     canary:
       maxSurge: "25%"
       maxUnavailable: 0
       steps:
-      - setWeight: 25
-      - pause: { duration: 1m }
+        - setWeight: 25
+        - pause: {duration: 1m}
