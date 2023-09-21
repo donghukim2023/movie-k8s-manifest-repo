@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: springboot-movie-people-api
-          image: dandonghukim/springboot-movie-people-api:11e166ecd779a13699e4cf77514db644f2937e6b
+          image: dandonghukim/springboot-movie-people-api:6632ca5623cb84fb03bb6d80a338aa1c4307b4a3
           imagePullPolicy: Always
           ports:
             - name: http
