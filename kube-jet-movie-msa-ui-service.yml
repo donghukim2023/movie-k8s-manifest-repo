@@ -1,20 +1,11 @@
----
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: jet-movie-msa-ui
-  labels:
-    app: jet-movie-msa-ui
-  annotations:
-    oci.oraclecloud.com/load-balancer-type: "lb"
-    service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
-    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10"
-    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "100"
+  name: jet-movie-msa-ui-svc
 spec:
-  ports:
-  - port: 80
-    targetPort: 8000
-    name: http
   selector:
-    app: jet-movie-msa-ui
-  type: LoadBalancer
+    app: 
+  ports:
+    - port: 32000
+      targetPort: 8000
+  type: ClusterIP

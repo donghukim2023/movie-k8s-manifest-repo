@@ -22,3 +22,10 @@ spec:
               name: springboot-movie-people-api-svc 
               port:
                 number: 31000
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: jet-movie-msa-ui-svc
+              port:
+                number: 32000
