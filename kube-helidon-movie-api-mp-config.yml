@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: helidon-movie-api-mp
-          image: dandonghukim/helidon-movie-api-mp:c1a5930ff1525f09f66fa0e83aa09af2cfe097b3
+          image: dandonghukim/helidon-movie-api-mp:57999106a004c69fd5cf887de3f1f83995a0936c
           imagePullPolicy: Always
           ports:
             - name: http
@@ -35,4 +35,4 @@ spec:
   template:
     spec:
       containers:
-        - image: dandonghukim/helidon-movie-api-mp:c1a5930ff1525f09f66fa0e83aa09af2cfe097b3
+        - image: dandonghukim/helidon-movie-api-mp:57999106a004c69fd5cf887de3f1f83995a0936c
