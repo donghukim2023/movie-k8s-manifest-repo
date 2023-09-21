@@ -1,10 +1,9 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: springboot-movie-people-api
 spec:
-  replicas: 8
-  revisionHistoryLimit: 2
+  replicas: 3
   selector:
     matchLabels:
       app: springboot-movie-people-api
@@ -14,43 +13,36 @@ spec:
         app: springboot-movie-people-api
     spec:
       containers:
-        - name: springboot-movie-people-api
-          image: dandonghukim/springboot-movie-people-api:6632ca5623cb84fb03bb6d80a338aa1c4307b4a3
-          imagePullPolicy: Always
-          ports:
-            - name: http
-              containerPort: 8080
-              protocol: TCP
-          env:
-            - name: DB_HOST
-              valueFrom:
-                configMapKeyRef:
-                  name: moviedb-config
-                  key: db-host
-            - name: DB_PORT
-              valueFrom:
-                configMapKeyRef:
-                  name: moviedb-config
-                  key: db-port
-            - name: DB_SERVICE_NAME
-              valueFrom:
-                configMapKeyRef:
-                  name: moviedb-config
-                  key: db-service-name
-            - name: DB_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: moviedb-secret
-                  key: username
-            - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: moviedb-secret
-                  key: password
-  strategy:
-    canary:
-      maxSurge: "25%"
-      maxUnavailable: 0
-      steps:
-        - setWeight: 25
-        - pause: {}
+      - name: springboot-movie-people-api
+        image: dandonghukim/springboot-movie-people-api:latest
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef: 
+              name: moviedb-config
+              key: db-host
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef: 
+              name: moviedb-config
+              key: db-port
+        - name: DB_SERVICE_NAME
+          valueFrom:
+            configMapKeyRef: 
+              name: moviedb-config
+              key: db-service-name
+        - name: DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: moviedb-secret
+              key: username
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: moviedb-secret
+              key: password
