@@ -13,13 +13,13 @@ spec:
         app: helidon-movie-api-mp
     spec:
       containers:
-      - name: helidon-movie-api-mp
-        image: dandonghukim/helidon-movie-api-mp:latest
-        imagePullPolicy: Always
-        ports:
-        - name: http
-          containerPort: 8080
-          protocol: TCP
+        - name: helidon-movie-api-mp
+          image: dandonghukim/helidon-movie-api-mp:c1a5930ff1525f09f66fa0e83aa09af2cfe097b3
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
 ---
 apiVersion: v1
 kind: Service
@@ -32,3 +32,7 @@ spec:
     - port: 30000
       targetPort: 8080
   type: ClusterIP
+  template:
+    spec:
+      containers:
+        - image: dandonghukim/helidon-movie-api-mp:c1a5930ff1525f09f66fa0e83aa09af2cfe097b3
