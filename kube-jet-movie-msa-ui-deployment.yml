@@ -13,12 +13,12 @@ spec:
         app: jet-movie-msa-ui
     spec:
       containers:
-      - name: jet-movie-msa-ui
-        image: dandonghukim/jet-movie-msa-ui:latest
-        imagePullPolicy: Always
-        ports:
-        - name: http
-          containerPort: 8000
-          protocol: TCP
+        - name: jet-movie-msa-ui
+          image: dandonghukim/jet-movie-msa-ui:3d47d1f01ef3e531d48114c7fa65bd1f66e70f2c
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 8000
+              protocol: TCP
       imagePullSecrets:
         - name: ocirsecret
