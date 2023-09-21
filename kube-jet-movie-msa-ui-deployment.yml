@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: jet-movie-msa-ui
-          image: dandonghukim/jet-movie-msa-ui:32a6a8c921020bb051ecf780f19567d5348c30e5
+          image: dandonghukim/jet-movie-msa-ui:c7f7c7efea07b62229811b07cbd584f50881ac95
           imagePullPolicy: Always
           ports:
             - name: http
