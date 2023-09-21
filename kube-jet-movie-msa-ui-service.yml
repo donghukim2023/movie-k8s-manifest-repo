@@ -4,7 +4,7 @@ metadata:
   name: jet-movie-msa-ui-svc
 spec:
   selector:
-    app: 
+    app: jet-movie-msa-ui
   ports:
     - port: 32000
       targetPort: 8000
