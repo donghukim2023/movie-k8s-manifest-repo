@@ -25,7 +25,7 @@ spec:
         - name: ocirsecret
   strategy:
     canary:
-      maxSurge: "20%"
+      maxSurge: "80%"
       maxUnavailable: 0
       steps:
         - setWeight: 20
